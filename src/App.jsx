@@ -24,7 +24,7 @@ function App() {
     },
   ]);
 
-  function onTaskClick(taskId) {
+  function onClickCompleteTask(taskId) {
     const newTasks = tasks.map((task) => {
       if (task.id == taskId) {
         return { ...task, isCompleted: !task.isCompleted };
@@ -46,7 +46,7 @@ function App() {
           Gerenciar Tarefas
         </h1>
         <AddTask />
-        <Tasks tasks={tasks} onTaskClick={onTaskClick} onClickDeleteTask={onClickDeleteTask} />
+        <Tasks tasks={tasks} onClickCompleteTask={onClickCompleteTask} onClickDeleteTask={onClickDeleteTask} />
       </div>
     </div>
   );
