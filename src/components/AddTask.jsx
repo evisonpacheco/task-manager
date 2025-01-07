@@ -22,6 +22,11 @@ function AddTask({ onClickAddTask }) {
       />
       <button
         onClick={() => {
+          if (!title.trim() || !description.trim()) {
+            setTitle("");
+            setDescription("");   
+            return alert("Preecha o Título e a Descrição da Tarefa!");
+          }
           onClickAddTask(title, description);
           setTitle("");
           setDescription("");
