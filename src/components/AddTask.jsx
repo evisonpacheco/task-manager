@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Input from "./Input";
 
 function AddTask({ onClickAddTask }) {
   const [title, setTitle] = useState("");
@@ -6,17 +7,15 @@ function AddTask({ onClickAddTask }) {
 
   return (
     <div className="space-y-4 p-6 bg-slate-200 rounded-md shadow flex flex-col">
-      <input
+      <Input
         type="text"
         placeholder="Adicionar Tarefa"
-        className="border border-slate-300 outline-slate-400 px-4 py-2 rouded-md"
         value={title}
         onChange={(event) => setTitle(event.target.value)}
       />
-      <input
+      <Input
         type="text"
         placeholder="Adicionar Descrição"
-        className="border border-slate-300 outline-slate-400 px-4 py-2 rouded-md"
         value={description}
         onChange={(event) => setDescription(event.target.value)}
       />
@@ -24,7 +23,7 @@ function AddTask({ onClickAddTask }) {
         onClick={() => {
           if (!title.trim() || !description.trim()) {
             setTitle("");
-            setDescription("");   
+            setDescription("");
             return alert("Preecha o Título e a Descrição da Tarefa!");
           }
           onClickAddTask(title, description);
